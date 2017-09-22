@@ -1,0 +1,29 @@
+import sys
+import math
+import string
+# Auto-generated code below aims at helping you parse
+# the standard input according to the problem statement.
+
+l = int(input())
+h = int(input())
+t = input().lower()
+
+rows = []
+for r in range(h):
+    rows.append(input())
+    
+#rows = '\n'.join(rows)
+#print(rows,file=sys.stderr)
+
+for i in range(h):
+    for j in t:
+        if any(j in s for s in string.ascii_lowercase):
+            pos = string.ascii_lowercase.index(j)
+        else:
+            pos = 26
+        #print(pos, file = sys.stderr)
+        sys.stdout.write(rows[i][pos*l:(pos+1)*l])
+    sys.stdout.write("\n")
+
+# Write an action using print
+# To debug: print("Debug messages...", file=sys.stderr)
