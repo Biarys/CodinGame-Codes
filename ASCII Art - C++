@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cstring>
+
+
+using namespace std;
+
+
+int main()
+{
+    int L;
+    cin >> L; cin.ignore();
+    int H;
+    cin >> H; cin.ignore();
+    string T;
+    getline(cin, T);
+    char E;
+    
+    
+    int posnum = 0;
+    int sentlen = T.length() * L;
+    int charnum[T.length()];
+    int b = 0;
+    string letter;
+    string ROW;
+    string sentence;    
+    int c = 0;
+/* for (c = 0; c < T.length(); c++) {
+        getline(cin, ROW);
+        ss >> E;
+        charnum[c] = int(E);
+        posnum[c] =  (charnum[c] - 65) * L;
+        
+    
+} */
+       
+ for (int i = 0; i < H; i++) {
+          
+     
+    /*    getline(cin, ROW);
+        ss >> E;
+     */ 
+        getline(cin, ROW);
+      /*  ss >> E;
+              charnum[c] = int(E);
+              posnum =  (charnum[c] - 65) * L;
+        */
+        stringstream ss(T);
+        for (c = 0; c < T.length(); c++) {
+              ss >> E;
+              charnum[c] = int(E);
+              if (int(E) >= 65 && int(E) <= 90) {
+              posnum =  (charnum[c] - 65) * L; }
+              
+              if (int(E) >= 97 && int(E) <= 122) {
+              posnum =  (charnum[c] - 97) * L; }
+                   
+              if (int(E) <65 || int(E) > 122) {
+              posnum =  26 * L; }
+              
+              letter = ROW.substr(posnum, sentlen);
+             
+             //  cout << string(letter.begin(), letter.begin() + L) << endl;
+               sentence += string(letter.begin(), letter.begin() + L);
+            
+        
+ //       if (T.length()*L == T.back()) {sentence = "";}
+        } 
+       
+        cout << sentence << endl; 
+        sentence = "";
+    }
+ 
+}
+
+
